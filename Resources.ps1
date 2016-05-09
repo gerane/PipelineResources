@@ -21,7 +21,7 @@ Function ParseMarkdown
         '^\* \[.*' # Entry
         {        
             $Entry = ($Matches[0] -replace '^\* ','').Trim()
-            $Parse = $Entry -match '^.*\[(.*)\].*\((.*)\)$'
+            $Parse = $Entry -match '^.*\[(.*)\].*\((.*)\).*$'
             $Description = $Matches[1]
             $uri = $Matches[2]
             $Section[$Topic] += @{ $Description = $uri }
